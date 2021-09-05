@@ -12,7 +12,7 @@ namespace Draco
     {
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
 
-        private Secret secret;
+        private Secret secret = new Secret();
         private DiscordSocketClient _client;
         private CommandService _commands;
         private IServiceProvider _service;
