@@ -12,6 +12,7 @@ namespace Draco
     {
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
 
+        private Secret secret;
         private DiscordSocketClient _client;
         private CommandService _commands;
         private IServiceProvider _service;
@@ -26,7 +27,7 @@ namespace Draco
                 .AddSingleton(_commands)
                 .BuildServiceProvider();
 
-            string botToken = "NDgxMDQ2MTYzMDQ3NTc5NjQ4.Dlw0kQ.fZDof2gIm7V_ncrAabNRzq0m49M";
+            string botToken = secret.getToken();
 
             //bot subscription 
             _client.Log += Log;
